@@ -1,110 +1,181 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
 
-body {
-  --background-c: hsl(210, 45%, 60%);
-  background-color: var(--background-c, lightgray);
-  display: flex;
-  flex-direction: column;
-  font-family: "Raleway", Helvetica, sans-serif;
+:root {
+  --color-white: #f3f3f3;
+  --color-darkblue: #1b1b32;
+  --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+  --color-green: #4881ac;
 }
 
-@media (max-width: 400px) {
-  body {
-    font-size: 13px;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-white);
+  margin: 0;
+}
+
+/* mobile friendly alternative to using background-attachment: fixed */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: var(--color-darkblue);
+  background-image: linear-gradient(
+      115deg,
+      rgba(49, 109, 158, 0.8),
+      rgba(154, 209, 236, 0.874)
+    ),
+    url("city2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 h1 {
-  margin-bottom: 5px;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
-header {
-  padding-bottom: 15px;
-  position: fixed;
-  background-color: var(--background-c, lightgray);
+p {
+  font-size: 1.125rem;
+}
+
+h1,
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+input,
+button,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  border: none;
+}
+
+.container {
   width: 100%;
-  z-index: 1;
-  top: 0%;
+  margin: 3.125rem auto 0 auto;
 }
 
-main {
-  background-color: hsl(200, 60%, 100%);
-  height: 100%;
-  max-width: 900px;
-  margin: auto;
-  margin-bottom: 80px;
-  padding-bottom: 10px;
-  padding-top: 5px;
-  position: relative;
-  top: 80px;
-}
-
-@media (max-width: 400px) {
-  main {
-    top: 65px;
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
   }
 }
 
-.title-text {
-  margin: auto;
-  margin-top: -5px;
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+.header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+}
+
+.description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: #e4e4e4;
+}
+
+.text-center {
   text-align: center;
 }
 
-#description {
-  margin-top: 10px;
+/* form */
+
+form {
+  background: var(--color-darkblue-alpha);
+  padding: 2.5rem 0.625rem;
+  border-radius: 0.25rem;
 }
 
-#survey-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#survey-fields {
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: grid;
-  grid-gap: 10px;
-}
-
-@media (max-width: 600px) {
-  #survey-fields {
-    grid-template-columns: 1fr;
-  }
-  label {
-    text-align: left;
+@media (min-width: 480px) {
+  form {
+    padding: 2.5rem;
   }
 }
 
-@media (min-width: 600px) {
-  #survey-fields {
-    grid-template-columns: 1fr 1fr;
-  }
-  label {
-    text-align: right;
-  }
+.form-group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
 }
 
-fieldset {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 0;
-  min-width: 100%;
+.form-control {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-fieldset label:hover {
-  font-weight: bold;
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-#submit {
-  margin: auto;
-  background-color: var(--background-c, lightgray);
-  border-radius: 8px;
-  padding: 5px 12px 5px 12px;
-  margin-top: 5px;
-  font-size: 85%;
+.input-radio,
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.input-textarea {
+  min-height: 120px;
+  width: 100%;
+  padding: 0.625rem;
+  resize: vertical;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-green);
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
 }
