@@ -57,8 +57,8 @@ label {
     display: flex;
     align-items: center;
     font-size: 1.125rem;
-    margin: 8px 0 8px 0;
-    font-weight: 200;
+    margin: 11px 0 11px 0;
+    font-weight: 300;
     line-height: 25px;
 }
 
@@ -78,14 +78,6 @@ input {
     line-height: inherit;
     writing-mode: horizontal-tb;
     font-weight: 200;
-}
-
-#number,
-#email,
-#name {
-    width: 12em;
-    line-height: 30px;
-
 }
 
 button {
@@ -195,9 +187,10 @@ fieldset {
 button {
     margin: auto;
     margin-top: 15px;
-    width: 20%;
+    font-size: medium;
+    width: 30%;
     padding: 0.65rem;
-    background: var(--color-green);
+    background: rgb(25, 134, 61);
     color: inherit;
     border-radius: 9px;
     cursor: pointer;
